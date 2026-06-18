@@ -1,0 +1,23 @@
+#ifndef MODULE4_SEARCHSERVICE_H
+#define MODULE4_SEARCHSERVICE_H
+
+
+#include "Module1_Models.h"
+#include <string>
+
+
+using namespace std;
+
+
+// Các hàm tìm kiếm nâng cao
+void timKiemDiemDanhTheoNgay(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
+void timKiemDiemDanhTheoSinhVien(LopHoc** dsLop, int soLop, string maSV);
+void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop);
+
+
+// Các hàm xuất báo cáo thống kê chuyên sâu
+void thongKeSiSoTheoBuoi(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
+void inDanhSachSinhVienVangNhieuNhat(LopHoc** dsLop, int soLop, string maLop);
+
+
+#endif
