@@ -10,7 +10,7 @@ string chuanHoaTrangThai(string nhap) {
     for (char &c : nhap) c = toupper(c);
     if (nhap == "C" || nhap == "CO MAT") return "Co mat";
     if (nhap == "V" || nhap == "VANG") return "Vang khong phep";
-    if (nhap == "CP" || nhap == "CO PHEP") return "Co phep";
+    if (nhap == "CP" || nhap == "CO PHEP") return "Vang co phep";
     return "";
 }
 
@@ -18,7 +18,7 @@ string chuanHoaTrangThai(string nhap) {
 int trangThaiToCode(string trangThai) {
     if (trangThai == "Co mat") return 1;
     if (trangThai == "Vang khong phep") return 2;
-    if (trangThai == "Co phep") return 3;
+    if (trangThai == "Vang co phep") return 3;
     return 0;
 }
 
@@ -26,7 +26,7 @@ int trangThaiToCode(string trangThai) {
 string codeToTrangThai(int code) {
     if (code == 1) return "Co mat";
     if (code == 2) return "Vang khong phep";
-    if (code == 3) return "Co phep";
+    if (code == 3) return "Vang co phep";
     return "Chua diem danh";
 }
 
