@@ -3,9 +3,8 @@
 using namespace std;
 
 
-// ==========================================
 // SINH VIEN
-// ==========================================
+
 SinhVien::SinhVien() : STT(0), MSSV(""), hoTen(""), ngaySinh(""), tongSoBuoi(0), capacity(5) {
     dsDiemDanh = new NgayDiemDanh[capacity];
 }
@@ -57,9 +56,8 @@ SinhVien& SinhVien::operator=(const SinhVien& other) {
 NodeSinhVien::NodeSinhVien(SinhVien sv) : data(sv), next(NULL) {}
 
 
-// ==========================================
 // LOP HOC
-// ==========================================
+
 LopHoc::LopHoc() : maLop(""), tenLop(""), soTiet(0), capacityTiet(4), head(NULL), siSo(0) {
     dsTiet = new TietHoc[capacityTiet];
 }
@@ -76,9 +74,7 @@ LopHoc::~LopHoc() {
 }
 
 
-// ==========================================
 // HAM HO TRO
-// ==========================================
 
 void themTietHoc(LopHoc& lop, int thu, string tiet, string phong, string monHoc) {
     if (lop.soTiet >= lop.capacityTiet) {
