@@ -186,7 +186,6 @@ void inDanhSachSinhVienVangNhieuNhat(LopHoc** dsLop, int soLop, string maLop) {
         curr = curr->next;
     }
 
-
     cout << "\n=======================================================\n";
     cout << "   DANH SACH SINH VIEN CO BUOI NGHI NHIEU NHAT LOP: " << lopSelected->tenLop << "\n";
     cout << "=======================================================\n";
@@ -236,3 +235,117 @@ void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop) {
         stt ++;
     }
 }
+
+void thongKeDiemDanhLopHoc(LopHoc** dsLop, int soLop, string maLop) {
+    int idx = timChiSoLop(dsLop, soLop, maLop);
+    if (idx == -1) {
+        cout << "Loi: Khong tim thay ma lop " << maLop << "\n";
+        return;
+    }
+
+    LopHoc* lopSelected = dsLop[idx];
+    if (lopSelected->head == nullptr) {
+        cout << "Lop hoc nay chua co sinh vien.\n";
+        return;
+    }
+
+    int capDates = 8;
+    int soDates = 0;
+    string* dates = new string[capDates];
+    int* coMat = new int[capDates];
+    int* vangCoPhep = new int[capDates];
+    int* vangKhongPhep = new int[capDates];
+
+    for (int i = 0; i < capDates; i++) {
+        coMat[i] = 0;
+        vangCoPhep[i] = 0;
+        vangKhongPhep[i] = 0;
+    }
+
+    NodeSinhVien* curr = lopSelected->head;
+    while (curr != nullptr) {
+        SinhVien& sv = curr->data;
+        for (int i = 0; i < sv.tongSoBuoi; i++) {
+            string ngay = sv.dsDiemDanh[i].date;
+            int index = -1;
+            for (int j = 0; j < soDates; j++) {
+                if (dates[j] == ngay) {
+                    index = j;
+                    break;
+                }
+            }
+            if (index == -1) {
+                if (soDates >= capDates) {
+                    int newCap = capDates * 2;
+                    string* newDates = new string[newCap];
+                    int* newCoMat = new int[newCap];
+                    int* newVCP = new int[newCap];
+                    int* newVKP = new int[newCap];
+                    for (int k = 0; k < soDates; k++) {
+                        newDates[k] = dates[k];
+                        newCoMat[k] = coMat[k];
+                        newVCP[k] = vangCoPhep[k];
+                        newVKP[k] = vangKhongPhep[k];
+                    }
+                    delete[] dates;
+                    delete[] coMat;
+                    delete[] vangCoPhep;
+                    delete[] vangKhongPhep;
+                    dates = newDates;
+                    coMat = newCoMat;
+                    vangCoPhep = newVCP;
+                    vangKhongPhep = newVKP;
+                    capDates = newCap;
+                }
+                dates[soDates] = ngay;
+                coMat[soDates] = 0;
+                vangCoPhep[soDates] = 0;
+                vangKhongPhep[soDates] = 0;
+                index = soDates;
+                soDates++;
+            }
+
+            int trangThai = sv.dsDiemDanh[i].trangThai;
+            if (trangThai == 1) {
+                coMat[index]++;
+            } else if (trangThai == 2) {
+                vangKhongPhep[index]++;
+            } else if (trangThai == 3) {
+                vangCoPhep[index]++;
+            }
+        }
+        curr = curr->next;
+    }
+
+    if (soDates == 0) {
+        cout << "Lop hoc " << lopSelected->maLop << " chua co buoi diem danh nao.\n";
+        delete[] dates;
+        delete[] coMat;
+        delete[] vangCoPhep;
+        delete[] vangKhongPhep;
+        return;
+    }
+
+    cout << "\n=======================================================\n";
+    cout << "   THONG KE BUOI DIEM DANH LOP: " << lopSelected->tenLop << " (" << lopSelected->maLop << ")\n";
+    cout << "=======================================================\n";
+    for (int i = 0; i < soDates; i++) {
+        int tongGhiNhan = coMat[i] + vangCoPhep[i] + vangKhongPhep[i];
+        cout << "Ngay: " << dates[i] << "\n";
+        cout << "  Co mat: " << coMat[i] << "\n";
+        cout << "  Vang co phep: " << vangCoPhep[i] << "\n";
+        cout << "  Vang khong phep: " << vangKhongPhep[i] << "\n";
+        cout << "  Tong da ghi nhan: " << tongGhiNhan << " / " << lopSelected->siSo << "\n";
+        if (tongGhiNhan < lopSelected->siSo) {
+            cout << "  (Chua du thong tin cho mot so sinh vien trong buoi nay.)\n";
+        }
+        cout << "-------------------------------------------------------\n";
+    }
+    cout << "=======================================================\n";
+
+    delete[] dates;
+    delete[] coMat;
+    delete[] vangCoPhep;
+    delete[] vangKhongPhep;
+}
+
