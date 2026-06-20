@@ -102,7 +102,6 @@ void thongKeSiSoTheoBuoi(LopHoc** dsLop, int soLop, string maLop, string ngayHoc
 
     NodeSinhVien* curr = lopSelected->head;
 
-    // --- Phần in báo cáo giữ nguyên như cũ của bạn ---
     cout << "\n=======================================================\n";
     cout << "   BAO CAO SI SO LOP: " << lopSelected->tenLop << " (" << lopSelected->maLop << ")\n";
     cout << "   NGAY HOC: " << ngayHoc << "\n";
