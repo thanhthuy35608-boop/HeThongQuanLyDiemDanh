@@ -23,11 +23,10 @@ void hienThiMenuChinh(LopHoc**& dsLop, int& soLop, int& capacityLop) {
         cout << " [4] Chinh sua / Cap nhat trang thai diem danh\n";
         cout << " [5] Tim kiem diem danh theo ma sinh vien\n";//
         cout << " [6] Tim kiem diem danh theo ngay cua lop hoc\n";
-        cout << " [7] Thong ke cac buoi diem danh cua lop hoc\n";
-        cout << " [8] Danh sach sinh vien vang nhieu nhat\n"; 
+        cout << " [7] Danh sach sinh vien vang nhieu nhat\n"; 
         cout << " [0] Luu tat ca du lieu va Thoat chuong trinh\n";
         cout << "=======================================================\n";
-        cout << " Nhap lua chon cua ban (0-8): ";
+        cout << " Nhap lua chon cua ban (0-7): ";
         if (!(cin >> choice)) {
             cin.clear(); cin.ignore(10000, '\n');
             cout << "Lua chon khong hop le!\n";
@@ -98,13 +97,6 @@ void hienThiMenuChinh(LopHoc**& dsLop, int& soLop, int& capacityLop) {
             case 7: {
                 if (soLop == 0) { cout << "Khong co lop hoc nao!\n"; break; }
                 cout << "Nhap ma lop: "; getline(cin, maLop);
-                thongKeDiemDanhLopHoc(dsLop, soLop, maLop);
-                break;
-            }
-
-            case 8: {
-                if (soLop == 0) { cout << "Khong co lop hoc nao!\n"; break; }
-                cout << "Nhap ma lop: "; getline(cin, maLop);
                 inDanhSachSinhVienVangNhieuNhat(dsLop, soLop, maLop);
                 break;
             }
@@ -115,7 +107,7 @@ void hienThiMenuChinh(LopHoc**& dsLop, int& soLop, int& capacityLop) {
             }
 
             default:
-                cout << "Lua chon khong hop le, vui long nhap lai (0-8)!\n";
+                cout << "Lua chon khong hop le, vui long nhap lai (0-7)!\n";
         } 
     }while (choice != 0) ; 
 }
