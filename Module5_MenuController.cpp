@@ -102,7 +102,7 @@ void hienThiMenuChinh(LopHoc**& dsLop, int& soLop, int& capacityLop) {
             }
 
             case 0: {
-                cout << "Cam on da su dung chuong trinh. Tam biet!\n";
+                cout << "Thoat chuong trinh!\n";
                 break;
             }
 
