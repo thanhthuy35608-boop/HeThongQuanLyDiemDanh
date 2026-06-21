@@ -11,11 +11,10 @@ using namespace std;
 
 // Các hàm tìm kiếm nâng cao
 void timKiemDiemDanhTheoSinhVien(LopHoc** dsLop, int soLop, string maSV);
-void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop);
+void timKiemDiemDanhTheoNgay(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
 
 // Các hàm xuất báo cáo thống kê chuyên sâu
-void timKiemDiemDanhTheoNgay(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
-void thongKeDiemDanhLopHoc(LopHoc** dsLop, int soLop, string maLop);
+void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop);
 void inDanhSachSinhVienVangNhieuNhat(LopHoc** dsLop, int soLop, string maLop);
 
 
