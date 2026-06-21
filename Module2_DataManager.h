@@ -14,17 +14,13 @@ using namespace std;
 bool moFileNhap(ifstream& fin, const string paths[], int len);
 void tachChuoi(const string& s, char delim, string* parts, int& count, int maxParts);
 
-
 // --- CÁC HÀM THAO TÁC DỮ LIỆU CƠ BẢN (THÊM / XÓA) ---
 int timChiSoLop(LopHoc** dsLop, int soLop, string maLop);
 LopHoc* chonLop(LopHoc** dsLop, int soLop);
 
-void luuDuLieuDiemDanh(LopHoc** dsLop, int soLop, string tenFile);
-
-
 // --- CÁC HÀM ĐỌC / GHI FILE ---
 void docDuLieuTu3FileTXT(LopHoc**& dsLop, int& soLop, int& capacityLop);
-
+void luuDuLieuDiemDanh(LopHoc** dsLop, int soLop, string tenFile);
 
 #endif 
 
