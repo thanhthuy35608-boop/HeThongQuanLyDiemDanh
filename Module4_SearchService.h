@@ -14,7 +14,7 @@ void timKiemDiemDanhTheoSinhVien(LopHoc** dsLop, int soLop, string maSV);
 void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop);
 
 // Các hàm xuất báo cáo thống kê chuyên sâu
-void timKiemDiemDanhTheoBuoi(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
+void timKiemDiemDanhTheoNgay(LopHoc** dsLop, int soLop, string maLop, string ngayHoc);
 void thongKeDiemDanhLopHoc(LopHoc** dsLop, int soLop, string maLop);
 void inDanhSachSinhVienVangNhieuNhat(LopHoc** dsLop, int soLop, string maLop);
 
