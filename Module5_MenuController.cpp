@@ -91,7 +91,7 @@ void hienThiMenuChinh(LopHoc**& dsLop, int& soLop, int& capacityLop) {
                     cout << "Ma lop khong ton tai!\n"; break; 
                 }
                 cout << "Nhap ngay hoc (dd/mm/yyyy): "; getline(cin, ngayHoc);
-                timKiemDiemDanhTheoBuoi(dsLop, soLop, maLop, ngayHoc);
+                timKiemDiemDanhTheoNgay(dsLop, soLop, maLop, ngayHoc);
                 break;
             }
 
