@@ -6,7 +6,7 @@
 
 using namespace std;
 
-
+//Tìm kiếm thông tin điểm danh của 1 lớp học vào 1 ngày cụ thể.
 void timKiemDiemDanhTheoNgay(LopHoc** dsLop, int soLop, string maLop, string ngayHoc) {
     int idx = timChiSoLop(dsLop, soLop, maLop);
     if (idx == -1) {
@@ -142,6 +142,7 @@ void inDanhSachSinhVienVangNhieuNhat(LopHoc** dsLop, int soLop, string maLop) {
     cout << "=======================================================\n";
 }
 
+//Xem toàn bộ thông tin của lớp học bao gồm mã lớp, tên môn học, phòng học, danh sách sinh viên thuộc lớp.
 void xemThongTinLop(LopHoc** dsLop, int soLop, string maLop) {
     int idx = timChiSoLop(dsLop, soLop, maLop);
     if (idx == -1) {
