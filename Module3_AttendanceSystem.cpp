@@ -14,7 +14,7 @@ string chuanHoaTrangThai(string nhap) {
     return "";
 }
 
-
+// Chuyển đổi trạng thái dạng chữ sang số để tối ưu bộ nhớ
 int trangThaiToCode(string trangThai) {
     if (trangThai == "Co mat") return 1;
     if (trangThai == "Vang khong phep") return 2;
@@ -22,7 +22,7 @@ int trangThaiToCode(string trangThai) {
     return 0;
 }
 
-
+// Chuyển đổi ngược từ số sang chữ để in thông tin ra màn hình.
 string codeToTrangThai(int code) {
     if (code == 1) return "Co mat";
     if (code == 2) return "Vang khong phep";
@@ -31,7 +31,7 @@ string codeToTrangThai(int code) {
 }
 
 
-// Luồng điểm danh đồng thời cho cả lớp (Duyệt DSLK)
+// Luồng điểm danh đồng thời cho cả lớp 
 void thucHienDiemDanh(LopHoc** dsLop, int soLop, string maLop, string ngayHoc) {
     int idx = timChiSoLop(dsLop, soLop, maLop);
     if (idx == -1) {
@@ -128,6 +128,7 @@ void tinhTyLeVangVaCanhBao(LopHoc** dsLop, int soLop, string maLop) {
     cout << "=======================================================\n";
 }
 
+//Cập nhật lại trạng thái điểm danh của sinh viên vào 1 ngày học nào đó.
 void capNhatTrangThaiDiemDanh(LopHoc** dsLop, int soLop, string maLop, string ngayHoc, string mssv, string trangThaiMoi) {
     int idx = timChiSoLop(dsLop, soLop, maLop);
     if (idx == -1) {
